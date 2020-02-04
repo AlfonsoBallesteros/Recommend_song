@@ -1,0 +1,51 @@
+/*Downloaded from https://www.codeseek.co/kosukehorai/bootstrap-image-checkbox-multiple-pRwKjg */
+.nopad {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+/*image gallery*/
+.image-checkbox {
+	cursor: pointer;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border: 4px solid transparent;
+	margin-bottom: 0;
+	outline: 0;
+}
+.image-checkbox input[type="checkbox"] {
+	display: none;
+}
+
+.h1{
+	font-family: 'love';
+	font-size: 50px;
+	text-align: center;
+	color: darkblue;
+}
+@font-face {
+	font-family: "love";
+	src: url("img/love.ttf");
+  }
+html,body{
+    background-image: url(img/fondo-inicio.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+    }
+
+.image-checkbox-checked {
+	border-color: #4783B0;
+}
+.image-checkbox .fa {
+  position: absolute;
+  color: #4A79A3;
+  background-color: #fff;
+  padding: 10px;
+  top: 0;
+  right: 0;
+}
+.image-checkbox-checked .fa {
+  display: block !important;
+}

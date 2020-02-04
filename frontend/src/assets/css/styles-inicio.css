@@ -1,0 +1,81 @@
+
+.gallery-title
+{
+    font-size: 80px;
+    color: white !important ; 
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 70px;
+    font-family: 'love';
+}
+.gallery-title:after {
+    content: "";
+    position: absolute;
+    width: 7.5%;
+    left: 46.5%;
+    height: 45px;
+    /*border-bottom: 1px solid #5e5e5e;*/
+}
+
+.texto{
+    bottom: 15px;
+    position: absolute;
+    text-align: center;
+    left: 30px;
+    color: black;
+    height: 40px;
+}
+.trazo{
+    box-shadow: 0px 0px 5px 1px black;
+}    
+
+.filter-button
+{
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 5px;
+    align-items: center;
+    color: black;
+    margin-bottom: 30px;
+
+}
+.filter-button:hover
+{
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    color: #ffffff;
+    background-color: white;
+
+}
+.btn-default:active .filter-button:active
+{
+    background-color: #42B32F;
+    color: white;
+}
+
+.port-image
+{
+    width: 100%;
+}
+
+.gallery_product
+{
+    margin-bottom: 30px;
+    
+}
+
+html,body{
+    background-image: url(./img/fondo-inicio.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+    }
+
+
+    @font-face {
+        font-family: "love";
+        src: url("img/love.ttf");
+      }
