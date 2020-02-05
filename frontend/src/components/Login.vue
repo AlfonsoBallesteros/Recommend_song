@@ -1,4 +1,5 @@
 <template>
+<div id="login-fondo">
     <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
@@ -47,11 +48,12 @@
 		</div>
 	</div>
 </div>
+</div>
 </template>
 <style scoped>
     @import url('https://fonts.googleapis.com/css?family=Numans');
 
-    html,body{
+    .login-fondo{
     background-image: 'url(' + require('@/assets/img/fondo.png') + ')';
     background-size: cover;
     background-repeat: no-repeat;

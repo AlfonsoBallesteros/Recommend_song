@@ -1,5 +1,7 @@
 // image gallery
 // init the state from the input
+import $ from 'jquery';
+
 $(".image-checkbox").each(function () {
     if ($(this).find('input[type="checkbox"]').first().attr("checked")) {
       $(this).addClass('image-checkbox-checked');

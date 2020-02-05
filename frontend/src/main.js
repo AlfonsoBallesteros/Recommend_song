@@ -4,8 +4,15 @@ import VueRouter from 'vue-router'
 import Inicio from './components/Inicio.vue'
 import Login from './components/Login.vue'
 import Register from './components/Register.vue'
+import Cancion from './components/Cancion.vue'
+import index from './components/index.vue'
 import 'bootstrap'; 
+import 'jquery';
+
+import 'popper.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle'
+
 import swal from 'sweetalert';
 
 Vue.use(VueRouter)
@@ -26,6 +33,16 @@ const router = new VueRouter({
       name: 'register',
       path: '/register',
       component: Register
+    },
+    {
+      name: 'cancion',
+      path: '/cancion',
+      component: Cancion
+    },
+    {
+      name: 'index',
+      path: '/index',
+      component: index
     }
   
   ],

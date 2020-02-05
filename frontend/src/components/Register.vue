@@ -1,5 +1,5 @@
 <template>
-  
+<div id="register-fondo">
 <div class="container">
 <div class=" justify-content-center  h-100 ">
     <div class=" card col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
@@ -80,7 +80,7 @@
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 </div>
-
+</div>
 
 </template>
 <style scoped>
@@ -95,7 +95,7 @@
     background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
     background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
   }
-  html,body{
+  .register-fondo{
     background-image: 'url(' + require('@/assets/css/img/fondo.jpg') + ')';
     background-size: cover;
     background-repeat: no-repeat;
