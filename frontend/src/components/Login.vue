@@ -12,12 +12,12 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form  role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
+				<form id="login">
 					<div class="input-group form-group">
 						<div class="input-group-prepend " >
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                        <input type="text" class="form-control" name="uname1" id="uname1" required="" placeholder="usuario">
+                        <input v-model="usuario" type="email" class="form-control" name="uname1" id="uname1" required="" placeholder="usuario">
                         <div class="invalid-feedback" style="color: aliceblue;">Oops, debes ingresar un nombre de usuario.</div>
 						
 					</div>
@@ -25,14 +25,14 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control  rounded-0" id="pwd1" required="" autocomplete="new-password" placeholder="password">
+						<input v-model="password" type="password" class="form-control  rounded-0" id="pwd1" required="" autocomplete="new-password" placeholder="password">
                         <div class="invalid-feedback" style="color: aliceblue;">Ingresa tu contraseña también!</div>
                     </div>
 					<div class="row align-items-center remember">
 						<input type="checkbox">Recordarme
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn" id="btnLogin">
+                        <button type="button" class="btn float-right login_btn" @click="login()">Login</button>
 					</div>
 				</form>
 			</div>
@@ -140,4 +140,63 @@
     }
 
 </style>
+<script>
+import Axios from "axios";
+import router from "../main";
 
+export default {
+    data(){
+        return{
+        usuario: '',
+        password: ''
+        }
+    },
+    methods: {
+        login(){
+            Axios.post('http://127.0.0.1:5000/user/login',{
+                correo: this.usuario,
+                password: this.password
+            }).then( res => {
+                if(res.data == 'usuario incorrecto'){
+                    console.log(res.data)
+                    swal({
+                        title: 'Usuario incorrecto',
+                        text: 'Datos incorrectos',
+                        icon: 'error',
+                        closeOnClickOutside: false,
+                        closeOnEsc: false
+                    })
+                }else if(res.data == 'contraseña incorrecta'){
+                    console.log(res.data)
+                    swal({
+                        title: 'Contraseña incorrecta',
+                        text: 'Datos incorrectos',
+                        icon: 'error',
+                        closeOnClickOutside: false,
+                        closeOnEsc: false
+                    })
+                }else{
+                    console.log((res.data.user_id))
+                    swal({
+                        title: 'Has iniciado sesion',
+                        text: 'Datos correctos',
+                        icon: 'success',
+                        closeOnClickOutside: false,
+                        closeOnEsc: false
+                    }).then( select =>{
+                        if( select ){
+                            this.$router.push({path:'/inicio'})
+                            localStorage.setItem('user_id', res.data.user_id)
+                        //window.location.href = '/app#/cliente'  
+                        }
+                    });
+                }
+            }).catch( error => {
+                
+            });
+        }
+    },
+    
+}
+
+</script>

@@ -6,6 +6,7 @@ import Login from './components/Login.vue'
 import Register from './components/Register.vue'
 import 'bootstrap'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import swal from 'sweetalert';
 
 Vue.use(VueRouter)
 

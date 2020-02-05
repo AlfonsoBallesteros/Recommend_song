@@ -3,10 +3,10 @@
 <div class="container">
 <div class=" justify-content-center  h-100 ">
     <div class=" card col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		<form role="form">
+		<div role="form">
 			<h2>Regístrate <small>La única verdad es la música!</small></h2>
 			<hr class="colorgraph">
-			<div class="row">
+			<!---<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
                         <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="Nombre" tabindex="1">
@@ -17,22 +17,22 @@
 						<input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Apellido" tabindex="2">
 					</div>
 				</div>
+			</div>-->
+			<div class="form-group">
+				<input v-model="nombre" type="text" name="display_name" id="display_name" class="form-control input-lg" placeholder="Nombre de Usuario" tabindex="3">
 			</div>
 			<div class="form-group">
-				<input type="text" name="display_name" id="display_name" class="form-control input-lg" placeholder="Nombre de Usuario" tabindex="3">
-			</div>
-			<div class="form-group">
-				<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email" tabindex="4">
+				<input v-model="correo" type="email" name="email" id="email" class="form-control input-lg" placeholder="Email" tabindex="4">
 			</div>
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Contraseña" tabindex="5">
+						<input  v-model="password" type="password" name="password" id="password" class="form-control input-lg" placeholder="Contraseña" tabindex="5" ref="password">
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-						<input type="password" name="password_confirmation" id="confirme contraseña" class="form-control input-lg" placeholder="Confirm Password" tabindex="6">
+						<input type="password" name="password_confirmation" id="confirme contraseña" class="form-control input-lg" placeholder="Confirm Password" tabindex="6" data-vv-as="password">
 					</div>
 				</div>
 			</div>
@@ -50,10 +50,10 @@
 			
 			<hr class="colorgraph">
 			<div class="row">
-				<div class="col-xs-12 col-md-6"><input type="submit" value="Registrar" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
-				<div class="col-xs-12 col-md-6"><a class="btn btn-success btn-block btn-lg"><router-link to="/inicio">Ingresar</router-link></a></div>
+				<div class="col-xs-12 col-md-6"><button class="btn btn-primary btn-block btn-lg" @click="registrar()">registrar</button></div>
+				<div class="col-xs-12 col-md-6"><button class="btn btn-success btn-block btn-lg" @click="Ingresar()">ingresar</button></div>
 			</div>
-		</form>
+		</div>
 	</div>
 </div>
 <!-- Modal -->
@@ -123,3 +123,67 @@
         color: white;
     }
 </style>
+<script>
+import Axios from "axios";
+export default {
+	data(){
+		return{
+        nombre: '',
+		correo:'',
+        password: ''
+        }
+	},
+	methods: {
+		register(){
+			Axios.post('http://127.0.0.1:5000/user/register',{
+				nombre: this.nombre,
+				correo: this.correo,
+				password: this.password
+			}).then( res => {
+				console.log(res.data)
+				if(res.data.ok){
+					swal({
+						title: 'Usuario creado',
+                    	text: 'Datos correctos',
+                    	icon: 'success',
+                    	closeOnClickOutside: false,
+                    	closeOnEsc: false
+					}).then( select => {
+						if(select){
+							this.$router.push({path:'/login'})
+						}
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+		},
+
+		Ingresar(){
+			Axios.post('http://127.0.0.1:5000/user/register',{
+				nombre: this.nombre,
+				correo: this.correo,
+				password: this.password
+			}).then( res => {
+				console.log(res.data)
+				if(res.data.ok){
+					swal({
+						title: 'Usuario creado',
+                    	text: 'Datos correctos',
+                    	icon: 'success',
+                    	closeOnClickOutside: false,
+                    	closeOnEsc: false
+					}).then( select => {
+						if(select){
+							this.$router.push({path:'/inicio'})
+							localStorage.setItem('user_id', res.data.user_id)
+						}
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			});
+		}
+	},
+}
+</script>

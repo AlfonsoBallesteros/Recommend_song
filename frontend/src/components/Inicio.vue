@@ -126,3 +126,11 @@ export default {
             src: url("img/love.ttf");
         }*/
 </style>
+<script>
+export default {
+
+    mounted() {
+        console.log(localStorage.getItem('user_id'))
+    },
+}
+</script>
