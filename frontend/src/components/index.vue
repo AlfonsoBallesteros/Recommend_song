@@ -1,6 +1,6 @@
 <template>
 <div class="bg-container">
-  <div class="container">
+  <div class="container m-l-a">
 
     <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <h1 class="h1"><strong>Escoge tus canciones favoritas</strong> </h1>

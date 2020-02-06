@@ -1,7 +1,7 @@
 <template>
-<div class="bg-container">
-    <div class="container">
-	<div class="d-flex justify-content-center h-100">
+<div class="bg-container" style="width: 100%; position: fixed;">
+    <div class="container m-l-a">
+	<div class="d-flex align-items-center " style="height: 100%">
 		<div class="card">
         <br>
 			<div class="card-header">
@@ -64,7 +64,6 @@
     .container{
     height: 100%;
     align-content: center;
-    margin: 20px;
     }
 
     .card{

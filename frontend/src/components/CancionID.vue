@@ -25,9 +25,9 @@
         <div id="total-time">
           <p>2:23</p>
         </div>
-        <br>
+          
        <div class="row margin">
-           <div class="col-md-12"><h1><strong> Canciones que te pueden gustar</strong></h1></div>
+           <div class="col-md-12"><h1><strong>Nuevas canciones</strong></h1></div>
            <div class="gallery_product col-md-3 filter hdpe">
                 <a href="cancion.html"><img src="../assets/img/modelo-cd.png" class="img-fluid"></a>
                 <h4 class="texto text-white">Canción: Todo de cabeza <br> Autor: Kaleth Morales </h4>
@@ -42,7 +42,8 @@
             <div class="gallery_product col-md-3 filter sprinkle">
                 <img src="../assets/img/modelo-cd.png" class="img-fluid">
             </div>
-       </div>
+      </div>
+    </div>
       <footer>
         <div id="repeat">
           <i class="fa fa-repeat"></i>
@@ -53,7 +54,7 @@
 
       </footer>
   </div>
-</div>
+
 </template>
 <style  scoped>
     
@@ -106,6 +107,14 @@ header {
 h1{
     text-align: center;
     margin-bottom: 20px;
+}
+.texto{
+    bottom: 15px;
+    position: absolute;
+    text-align: center;
+    left: 30px;
+    color: black;
+    height: 40px;
 }
 
 #song-info {

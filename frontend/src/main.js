@@ -6,6 +6,7 @@ import Login from './components/Login.vue'
 import Register from './components/Register.vue'
 import Cancion from './components/Cancion.vue'
 import index from './components/index.vue'
+import CancionID from './components/CancionID.vue'
 import 'bootstrap'; 
 import 'jquery';
 
@@ -43,6 +44,11 @@ const router = new VueRouter({
       name: 'index',
       path: '/index',
       component: index
+    },
+    {
+      name: 'cancionID',
+      path: '/cancion/id',
+      component: CancionID
     }
   
   ],

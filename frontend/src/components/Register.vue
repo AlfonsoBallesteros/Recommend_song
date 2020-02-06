@@ -1,8 +1,8 @@
 <template>
-<div class="bg-container">
-<div class="container">
+<div class="bg-container " style="width: 100%; position: fixed;">
+<div class="container m-l-a">
 
-    <div class=" card col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+    <div class=" card-register  col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3" >
 		<div role="form">
 			<h2>Regístrate <small>La única verdad es la música!</small></h2>
 			<hr class="colorgraph">
@@ -105,7 +105,8 @@
     }
     .card{
         height: 100%;
-        padding-bottom: 3%;
+		padding-bottom: 3%;
+		margin-left: 50px !important;
     }
     .container{
         height: 100%;
