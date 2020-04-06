@@ -33,7 +33,8 @@ def list_populate_song():
             },{"$sort":{
                     "count": -1
                     }
-                }
+                },
+            {"$limit": 21}
             ])
     
     songs = pd.DataFrame(populate)
@@ -138,7 +139,8 @@ def get_allSong():
                             "year": "$year", 
                             "song": "$song"}
                     }
-                }
+                },
+                {"$limit": 100}
             ])
     song_data = pd.DataFrame(song)
     resp = song_data.to_json(orient="records")

@@ -39,7 +39,7 @@
 			<div class="row">
 				<div class="col-xs-4 col-sm-3 col-md-3">
 					<span class="button-checkbox">
-						<button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
+						<button type="button" class="btn" data-color="info" tabindex="7">Acepto</button>
                         <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
 					</span>
 				</div>
@@ -50,7 +50,7 @@
 			
 			<hr class="colorgraph">
 			<div class="row">
-				<div class="col-xs-12 col-md-6"><button class="btn btn-primary btn-block btn-lg" @click="registrar()">registrar</button></div>
+				<div class="col-xs-12 col-md-6"><button class="btn btn-primary btn-block btn-lg" @click="Ingresar()">registrar</button></div>
 				<div class="col-xs-12 col-md-6"><button class="btn btn-success btn-block btn-lg" @click="Ingresar()">ingresar</button></div>
 			</div>
 		</div>
@@ -135,30 +135,6 @@ export default {
         }
 	},
 	methods: {
-		register(){
-			Axios.post('http://127.0.0.1:5000/user/register',{
-				nombre: this.nombre,
-				correo: this.correo,
-				password: this.password
-			}).then( res => {
-				console.log(res.data)
-				if(res.data.ok){
-					swal({
-						title: 'Usuario creado',
-                    	text: 'Datos correctos',
-                    	icon: 'success',
-                    	closeOnClickOutside: false,
-                    	closeOnEsc: false
-					}).then( select => {
-						if(select){
-							this.$router.push({path:'/login'})
-						}
-					})
-				}
-			}).catch( err => {
-				console.log(err)
-			})
-		},
 
 		Ingresar(){
 			Axios.post('http://127.0.0.1:5000/user/register',{
@@ -176,7 +152,7 @@ export default {
                     	closeOnEsc: false
 					}).then( select => {
 						if(select){
-							this.$router.push({path:'/inicio'})
+							this.$router.push({path:'/index'})
 							localStorage.setItem('user_id', res.data.user_id)
 						}
 					})

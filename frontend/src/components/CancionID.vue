@@ -5,8 +5,8 @@
     </div>
     <header>
         <div id="song-info">
-          <h1>Nombre canción</h1>
-          <p>Artista</p>
+          <h1>{{cancion.title}}</h1>
+          <p>{{cancion.artist_name}}</p>
         </div>
       </header>
     <div id="content">
@@ -27,20 +27,10 @@
         </div>
           
        <div class="row margin">
-           <div class="col-md-12"><h1><strong>Nuevas canciones</strong></h1></div>
-           <div class="gallery_product col-md-3 filter hdpe">
-                <a href="cancion.html"><img src="../assets/img/modelo-cd.png" class="img-fluid"></a>
-                <h4 class="texto text-white">Canción: Todo de cabeza <br> Autor: Kaleth Morales </h4>
-            </div>
-            <div class="gallery_product col-md-3 filter sprinkle">
-                <img src="../assets/img/modelo-cd.png" class="img-fluid">
-            </div>
-
-            <div class="gallery_product col-md-3 filter hdpe">
-                <img src="../assets/img/modelo-cd.png" class="img-fluid">
-            </div>
-            <div class="gallery_product col-md-3 filter sprinkle">
-                <img src="../assets/img/modelo-cd.png" class="img-fluid">
+           <div class="col-md-12"><h1><strong>Canciones para ti</strong></h1></div>
+           <div v-for="(similar, index) in similar" :key="index" class="gallery_product col-md-3 filter hdpe">
+                <router-link :to="'/cancion/id/' + similar.song"><img src="../assets/img/modelo-cd.png" class="img-fluid"></router-link>
+                <h4 class="texto text-white">Canción: {{similar.song}} </h4>
             </div>
       </div>
     </div>
@@ -374,4 +364,45 @@ footer #random {
 }
 
 </style>
+<script>
+import Axios from "axios";
+export default {
+ data() {
+   return {
+     cancion: '',
+     song: '',
+     similar: []
+   }
+ }, 
+ mounted() {
+   this.get_song();
+   
+ },
 
+ methods: {
+   get_song(){
+     this.song = this.$route.params.id
+     Axios.post('http://127.0.0.1:5000/find/song',{
+       song: this.song
+     }).then( res =>{
+       this.cancion = res.data[0]['_id']
+       console.log(this.cancion.song)
+       this.get_similar();
+     }).catch( err => {
+
+     })
+     
+   },
+   get_similar(){
+     Axios.post('http://127.0.0.1:5000/recommend/simmilar',{
+       song: this.cancion.song
+     }).then( res => {
+       this.similar = res.data;
+       console.log(this.similar)
+     }).catch(err =>{
+       console.log(err)
+     })
+   }
+ },
+}
+</script>

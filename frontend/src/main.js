@@ -47,7 +47,7 @@ const router = new VueRouter({
     },
     {
       name: 'cancionID',
-      path: '/cancion/id',
+      path: '/cancion/id/:id',
       component: CancionID
     }
   
